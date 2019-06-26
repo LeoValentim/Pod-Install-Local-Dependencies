@@ -6,7 +6,8 @@ module CocoapodsPodinstallocaldepencencies
 
     Pod::HooksManager.register('cocoapods-podInstalLocalDepencencies', :pre_install) do |context|
         options = context.podfile.installation_method.detect{|i| i.class == Hash}
-        local_dependencies = options.detect{|i| i.first == :PLD_local_dependencies}[1]
+        local_dependencies_option = options.detect{|i| i.first == :PLD_local_dependencies}
+        local_dependencies = local_dependencies_option[1]
         Podinstallocaldepencencies.new.configPreInstall(local_dependencies)
     end
     
