@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['leo.valent@hotmail.com']
   spec.description   = %q{A short description of cocoapods-podInstalLocalDepencencies.}
   spec.summary       = %q{A longer description of cocoapods-podInstalLocalDepencencies.}
-  spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-podInstalLocalDepencencies'
+  spec.homepage      = 'https://github.com/LeoValentim/Pod-Install-Local-Dependencies'
   spec.license       = 'MIT'
 
   spec.files = Dir['lib/**/*']
