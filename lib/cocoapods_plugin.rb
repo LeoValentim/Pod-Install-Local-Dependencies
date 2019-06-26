@@ -7,13 +7,18 @@ module CocoapodsPodinstallocaldepencencies
     Pod::HooksManager.register('cocoapods-podInstalLocalDepencencies', :pre_install) do |context|
         options = context.podfile.installation_method.detect{|i| i.class == Hash}
         local_dependencies_option = options.detect{|i| i.first == :PLD_local_dependencies}
-        local_dependencies = local_dependencies_option[1]
-        Podinstallocaldepencencies.new.configPreInstall(local_dependencies)
+        if local_dependencies_option != nil && local_dependencies_option[1] != nil
+            local_dependencies = local_dependencies_option[1]
+            Podinstallocaldepencencies.new.configPreInstall(local_dependencies)
+        end
     end
     
     Pod::HooksManager.register('cocoapods-podInstalLocalDepencencies', :pre_update) do |context|
         options = context.podfile.installation_method.detect{|i| i.class == Hash}
-        local_dependencies = options.detect{|i| i.first == :PLD_local_dependencies}[1]
-        Podinstallocaldepencencies.new.configPreUpdate(local_dependencies)
+        local_dependencies_option = options.detect{|i| i.first == :PLD_local_dependencies}
+        if local_dependencies_option != nil && local_dependencies_option[1] != nil
+            local_dependencies = local_dependencies_option[1]
+            Podinstallocaldepencencies.new.configPreUpdate(local_dependencies)
+        end
     end
 end
