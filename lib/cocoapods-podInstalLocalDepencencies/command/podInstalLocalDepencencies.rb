@@ -14,6 +14,8 @@ module Pod
 
       self.arguments = []
 
+      # self.arguments = 'NAME'
+
       # def initialize(argv)
       #   @name = argv.shift_argument
       #   super
@@ -25,7 +27,8 @@ module Pod
       # end
 
       def run
-        CocoapodsPodinstallocaldepencencies::Podinstallocaldepencencies.new.configPreInstall()
+        Pod::UI.puts "Teste"
+        #CocoapodsPodinstallocaldepencencies::Podinstallocaldepencencies.new.configPreInstall()
       end
     end
   end
